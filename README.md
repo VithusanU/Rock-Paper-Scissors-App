@@ -1,66 +1,48 @@
 # Rock Paper Scissors x99
 
-## Project Overview
+## Overview
 
-In this project, you will build all of the logic needed for a more intense version of
-Rock Paper Scissors (RPS). Rather than selecting just one of Rock, Paper, or Scissors - each player
-will select three moves. Each move will consist of a type (Rock, Paper, or Scissors) as well
-as a strength value. Each player will have 99 total points to use as strength between all
-three of their moves. For example, an example set of moves might be:
+This project is a custom version of Rock Paper Scissors where each player chooses three moves with different strength values, totaling 99 points. I built this to strengthen my understanding of JavaScript fundamentals like functions, global variables, and conditionals.
 
-- Move 1: Rock - 30 Strength Points
-- Move 2: Rock - 60 Strength Points
-- Move 3: Paper - 9 Strength Points
+The game compares moves round by round, with the player winning two or more rounds declared the winner. If both move types are the same, the strength values are compared. This helped me practice logic, game loops, and structuring code over multiple rounds.
 
-The strength for each move must be at least 1.
+## How it Works
 
-After each player's moves are chosen, they will compare moves in the order they were selected. If two moves have different types (for example, Rock vs Scissors), then normal RPS rules will apply (in this case, Rock beats Scissors).
-However, if two types are the same, then the move with more strength will win. If both strength values are
-equal, then a tie is declared.
+Players assign:
+- A move type (Rock, Paper, or Scissors)
+- A strength value (minimum 1, total of 99 for all three moves)
 
-The player that wins the majority of the three rounds will be the winner of the game.
+Example:
+- Rock - 30
+- Rock - 60
+- Paper - 9
 
+The game compares each move using RPS rules, or strength if the type is the same. If both strength and type match, it's a tie.
 
-## Implementation Details
+## Technologies Used
 
-All of your code should be written in the file at the following path: **js/game-logic.js**. Use the descriptions and testing suite discussed below to guide implementation of all necessary functionality.
+- JavaScript (core logic in `js/game-logic.js`)
+- HTML/CSS (simple frontend interface)
 
-To complete this project, your code will need to contain the following:
+## What I Learned
 
-* Twelve global variables representing each player's move types and values (3 move types and 3 move values for each player). These variable names should be in the form of `playerOneMoveOneType`, `playerOneMoveOneValue`, etc.
+- Managing game state across rounds
+- Using functions and variables to control flow
+- Handling edge cases like ties and invalid inputs
 
-* A function called `setPlayerMoves`, which will take a string representing a player (in the form of `'Player One'` or `'Player Two'`), three move types, and three move values, and set the correct global move variables. The method signature for this function should be as follows: `setPlayerMoves(player, moveOneType, moveOneValue, moveTwoType, moveTwoValue, moveThreeType, moveThreeValue)`.
+## Bonus Features
 
-* A function called `getRoundWinner`, which takes a round number (`1`, `2`, or `3`), compares both player's move types and values for that round, and returns the appropriate winner (`'Player One'`, `'Player Two'`, or `'Tie'`)
+- Random computer moves
+- Input validation
+- Testing with provided test suite
 
-* A function called `getGameWinner`, which compares both player's move
-types and values for the whole game and returns the appropriate winner (`'Player One'`, `'Player Two'`, or `'Tie'`)
+## Run the Game
 
-* Bonus: A function called `setComputerMoves`, which chooses three random moves for player two. The move type for each move should be completely random, and the move values should be random but add up to 99.
+1. Open `index.html` in Chrome.
+2. Choose moves and play!
 
+To run tests:
 
-To demo your version of the game, open **index.html** in your browser (by double clicking **index.html** in a file browser or dragging it into your Internet browser). You will be writing
-JavaScript code that uses new syntax (you will learn more about this later),
-so you will need to use the most up-to-date version of Chrome to ensure your code runs correctly. If your
-version of Chrome is too old, correctly-written code may still not run as expected.
-
-*Disclaimer*: If you have prior JavaScript or programming experience, you might be able to come up with an implementation that uses language features or best practices that we haven't yet covered in Build Web APIs From Scratch. The implementation details and the tests for this project require a specific implementation based upon the material covered so far: JS types, variables, functions, and scope, but not topics that will be covered in later units.
-
-As the projects in the Intensive continue, the project specifications and tests will become less granular, allowing you to implement the required functionality on your own.
-
-
-## Testing
-
-A testing suite has been provided for you, checking for all essential functionality and
-edge cases.
-
-To run these tests, first open the root project directory in your terminal. Then run `npm install` to install
-all necessary testing dependencies (you will only need to do this step once).
-Finally, run `npm run test`. You will see a list of tests that ran with information
-about whether or not each test passed. After this list, you will see more specific output
-about why each failing test failed.
-
-As you implement functionality, run the tests to
-ensure you are creating correctly named variables and functions that return the proper values.
-The tests will additionally help you identify edge cases that you may not have anticipated
-when first writing the functions.
+```bash
+npm install
+npm run test
